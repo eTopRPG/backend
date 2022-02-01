@@ -14,6 +14,27 @@ namespace API_for_game.Controllers
     {
 
         private eTopRPG_ISIP25Entities _ent { get; set; } = new eTopRPG_ISIP25Entities();
+
+        /// <summary>
+        /// Неполный метод на получение данных по персонажу
+        /// </summary>
+        /// <returns></returns>
+        public async Task<HttpResponseMessage> Get()
+        {
+            var character = await _ent.Character.Select(x => new CharachterModel()
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Energy = (int)x.Energy,
+                Hp = x.Hp
+
+            }).ToListAsync();
+
+            return Request.CreateResponse(HttpStatusCode.OK, character);
+        }
+
+
+
         /// <summary>
         /// Метод на возвращение hp в виде переменной
         /// </summary>
