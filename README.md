@@ -1,3 +1,7 @@
 # backend for RPG-game
-1. 18.01 - create a database(MS SQL), create web-API (in branch "API")
-2. 25.01 - create WPF (in branch WPFRPG)
+Ники и работа: 
+WorldOfPets - Поливанов Евгений - Разработчик WPF-backend, frontend. Полностью разработал логику приложения.
+            - Люминарская Анастасия ??
+            - Кунгурцев Виталий ??
+            - Владислав Шипилов ??
+            - Саяпина Валентина ??
