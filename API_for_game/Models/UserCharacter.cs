@@ -15,10 +15,9 @@ namespace API_for_game.Models
     public partial class UserCharacter
     {
         public int Id { get; set; }
-        public Nullable<int> IdUser { get; set; }
-        public Nullable<int> IdCharacter { get; set; }
+        public int IdUser { get; set; }
+        public int IdCharacter { get; set; }
     
         public virtual Character Character { get; set; }
-        public virtual User User { get; set; }
     }
 }

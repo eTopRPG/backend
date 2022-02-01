@@ -7,6 +7,14 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <EntityType Name="Action">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Enabled" Type="bit" />
+  </EntityType>
   <EntityType Name="Character">
     <Key>
       <PropertyRef Name="Id" />
@@ -17,6 +25,7 @@
     <Property Name="IdEquipmentCharacter" Type="int" Nullable="false" />
     <Property Name="Hp" Type="int" Nullable="false" />
     <Property Name="IdLevel" Type="int" Nullable="false" />
+    <Property Name="Energy" Type="int" />
   </EntityType>
   <EntityType Name="Class">
     <Key>
@@ -64,10 +73,10 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="IdEquipment" Type="int" />
-    <Property Name="IdCharacter" Type="int" />
-    <Property Name="Status" Type="bit" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEquipment" Type="int" Nullable="false" />
+    <Property Name="IdCharacter" Type="int" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Karta">
     <Key>
@@ -82,7 +91,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="XP" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -122,34 +131,10 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="IdUser" Type="int" />
-    <Property Name="IdCharacter" Type="int" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdCharacter" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK_Character_Class">
-    <End Role="Class" Type="Self.Class" Multiplicity="1" />
-    <End Role="Character" Type="Self.Character" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Class">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Character">
-        <PropertyRef Name="IdClasses" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Character_Level">
-    <End Role="Level" Type="Self.Level" Multiplicity="1" />
-    <End Role="Character" Type="Self.Character" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Level">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Character">
-        <PropertyRef Name="IdLevel" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ClassAbility_Ability">
     <End Role="Ability" Type="Self.Ability" Multiplicity="1" />
     <End Role="ClassAbility" Type="Self.ClassAbility" Multiplicity="*" />
@@ -187,7 +172,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_EquipmentCharacter_Character">
-    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="Character" Type="Self.Character" Multiplicity="1" />
     <End Role="EquipmentCharacter" Type="Self.EquipmentCharacter" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Character">
@@ -195,18 +180,6 @@
       </Principal>
       <Dependent Role="EquipmentCharacter">
         <PropertyRef Name="IdCharacter" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EquipmentCharacter_Equipment">
-    <End Role="Equipment" Type="Self.Equipment" Multiplicity="0..1" />
-    <End Role="EquipmentCharacter" Type="Self.EquipmentCharacter" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Equipment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EquipmentCharacter">
-        <PropertyRef Name="IdEquipment" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -235,7 +208,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserCharacter_Character">
-    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="Character" Type="Self.Character" Multiplicity="1" />
     <End Role="UserCharacter" Type="Self.UserCharacter" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Character">
@@ -246,20 +219,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserCharacter_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="UserCharacter" Type="Self.UserCharacter" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserCharacter">
-        <PropertyRef Name="IdUser" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="Хранилище eTopRPG_ISIP25ModelContainer">
     <EntitySet Name="Ability" EntityType="Self.Ability" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Character" EntityType="Self.Character" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClassAbility" EntityType="Self.ClassAbility" Schema="dbo" store:Type="Tables" />
@@ -273,14 +235,6 @@
     <EntitySet Name="TypeCoordinate" EntityType="Self.TypeCoordinate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserCharacter" EntityType="Self.UserCharacter" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Character_Class" Association="Self.FK_Character_Class">
-      <End Role="Class" EntitySet="Class" />
-      <End Role="Character" EntitySet="Character" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Character_Level" Association="Self.FK_Character_Level">
-      <End Role="Level" EntitySet="Level" />
-      <End Role="Character" EntitySet="Character" />
-    </AssociationSet>
     <AssociationSet Name="FK_ClassAbility_Ability" Association="Self.FK_ClassAbility_Ability">
       <End Role="Ability" EntitySet="Ability" />
       <End Role="ClassAbility" EntitySet="ClassAbility" />
@@ -297,10 +251,6 @@
       <End Role="Character" EntitySet="Character" />
       <End Role="EquipmentCharacter" EntitySet="EquipmentCharacter" />
     </AssociationSet>
-    <AssociationSet Name="FK_EquipmentCharacter_Equipment" Association="Self.FK_EquipmentCharacter_Equipment">
-      <End Role="Equipment" EntitySet="Equipment" />
-      <End Role="EquipmentCharacter" EntitySet="EquipmentCharacter" />
-    </AssociationSet>
     <AssociationSet Name="FK_Karta_CoordinateCharacter" Association="Self.FK_Karta_CoordinateCharacter">
       <End Role="CoordinateCharacter" EntitySet="CoordinateCharacter" />
       <End Role="Karta" EntitySet="Karta" />
@@ -311,10 +261,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_UserCharacter_Character" Association="Self.FK_UserCharacter_Character">
       <End Role="Character" EntitySet="Character" />
-      <End Role="UserCharacter" EntitySet="UserCharacter" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserCharacter_User" Association="Self.FK_UserCharacter_User">
-      <End Role="User" EntitySet="User" />
       <End Role="UserCharacter" EntitySet="UserCharacter" />
     </AssociationSet>
   </EntityContainer>

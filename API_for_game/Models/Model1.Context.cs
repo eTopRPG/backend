@@ -26,6 +26,7 @@ namespace API_for_game.Models
         }
     
         public virtual DbSet<Ability> Ability { get; set; }
+        public virtual DbSet<Action> Action { get; set; }
         public virtual DbSet<Character> Character { get; set; }
         public virtual DbSet<Class> Class { get; set; }
         public virtual DbSet<ClassAbility> ClassAbility { get; set; }

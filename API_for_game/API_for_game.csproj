@@ -162,6 +162,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\CharacterController.cs" />
+    <Compile Include="Models\Action.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CharachterModel.cs" />
     <Compile Include="Models\ClassModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />

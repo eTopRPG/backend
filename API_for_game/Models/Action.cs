@@ -12,13 +12,10 @@ namespace API_for_game.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EquipmentCharacter
+    public partial class Action
     {
         public int Id { get; set; }
-        public int IdEquipment { get; set; }
-        public int IdCharacter { get; set; }
-        public bool Status { get; set; }
-    
-        public virtual Character Character { get; set; }
+        public string Name { get; set; }
+        public Nullable<bool> Enabled { get; set; }
     }
 }

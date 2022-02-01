@@ -14,17 +14,8 @@ namespace API_for_game.Models
     
     public partial class Level
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Level()
-        {
-            this.Character = new HashSet<Character>();
-        }
-    
         public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<int> XP { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Character> Character { get; set; }
     }
 }

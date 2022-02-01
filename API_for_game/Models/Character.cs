@@ -27,9 +27,8 @@ namespace API_for_game.Models
         public int IdEquipmentCharacter { get; set; }
         public int Hp { get; set; }
         public int IdLevel { get; set; }
+        public Nullable<int> Energy { get; set; }
     
-        public virtual Class Class { get; set; }
-        public virtual Level Level { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EquipmentCharacter> EquipmentCharacter { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

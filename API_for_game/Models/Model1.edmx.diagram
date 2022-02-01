@@ -5,31 +5,28 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6b69887cdd724e3fa135baff65170734" Name="Diagram1">
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Ability" Width="1.5" PointX="3.75" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Character" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Class" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.ClassAbility" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.CoordinateCharacter" Width="1.5" PointX="10" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.CoordinateKarta" Width="1.5" PointX="10" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Equipment" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.EquipmentCharacter" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Karta" Width="1.5" PointX="12.25" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Level" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.TypeCoordinate" Width="1.5" PointX="7.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.User" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.UserCharacter" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
-        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_ClassAbility_Ability" ManuallyRouted="false" />
-        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_Character_Class" ManuallyRouted="false" />
-        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_Character_Level" ManuallyRouted="false" />
-        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_EquipmentCharacter_Character" ManuallyRouted="false" />
-        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_UserCharacter_Character" ManuallyRouted="false" />
-        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_ClassAbility_Class" ManuallyRouted="false" />
-        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_Karta_CoordinateCharacter" ManuallyRouted="false" />
-        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_CoordinateKarta_TypeCoordinate" ManuallyRouted="false" />
-        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_Karta_CoordinateKarta" ManuallyRouted="false" />
-        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_EquipmentCharacter_Equipment" ManuallyRouted="false" />
-        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_UserCharacter_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Ability" Width="1.5" PointX="5.75" PointY="5.125" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Action" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Character" Width="1.5" PointX="7.75" PointY="8.875" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Class" Width="1.5" PointX="5.75" PointY="8.125" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.ClassAbility" Width="1.5" PointX="8" PointY="4.875" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.CoordinateCharacter" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.CoordinateKarta" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Equipment" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.EquipmentCharacter" Width="1.5" PointX="10" PointY="10.625" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Karta" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.Level" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.TypeCoordinate" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.User" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="eTopRPG_ISIP25Model.UserCharacter" Width="1.5" PointX="10" PointY="8" />
+        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_ClassAbility_Ability" />
+        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_EquipmentCharacter_Character" />
+        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_UserCharacter_Character" />
+        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_ClassAbility_Class" />
+        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_Karta_CoordinateCharacter" />
+        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_CoordinateKarta_TypeCoordinate" />
+        <AssociationConnector Association="eTopRPG_ISIP25Model.FK_Karta_CoordinateKarta" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
