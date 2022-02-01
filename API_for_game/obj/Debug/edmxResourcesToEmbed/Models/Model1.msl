@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище eTopRPG_ISIP25ModelContainer" CdmEntityContainer="eTopRPG_ISIP25Entities">
+    <EntitySetMapping Name="Ability">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.Ability">
+        <MappingFragment StoreEntitySet="Ability">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Character">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.Character">
+        <MappingFragment StoreEntitySet="Character">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdClasses" ColumnName="IdClasses" />
+          <ScalarProperty Name="IdEquipmentCharacter" ColumnName="IdEquipmentCharacter" />
+          <ScalarProperty Name="Hp" ColumnName="Hp" />
+          <ScalarProperty Name="IdLevel" ColumnName="IdLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Class">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.Class">
+        <MappingFragment StoreEntitySet="Class">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassAbility">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.ClassAbility">
+        <MappingFragment StoreEntitySet="ClassAbility">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdClass" ColumnName="IdClass" />
+          <ScalarProperty Name="IdAbility" ColumnName="IdAbility" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoordinateCharacter">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.CoordinateCharacter">
+        <MappingFragment StoreEntitySet="CoordinateCharacter">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoordinateKarta">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.CoordinateKarta">
+        <MappingFragment StoreEntitySet="CoordinateKarta">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="IdTypeCoordinate" ColumnName="IdTypeCoordinate" />
+          <ScalarProperty Name="Fog" ColumnName="Fog" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipment">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.Equipment">
+        <MappingFragment StoreEntitySet="Equipment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Damage" ColumnName="Damage" />
+          <ScalarProperty Name="Protection" ColumnName="Protection" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentCharacter">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.EquipmentCharacter">
+        <MappingFragment StoreEntitySet="EquipmentCharacter">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdEquipment" ColumnName="IdEquipment" />
+          <ScalarProperty Name="IdCharacter" ColumnName="IdCharacter" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Karta">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.Karta">
+        <MappingFragment StoreEntitySet="Karta">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdCoordinateCharacter" ColumnName="IdCoordinateCharacter" />
+          <ScalarProperty Name="IdCoordinateKarta" ColumnName="IdCoordinateKarta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Level">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.Level">
+        <MappingFragment StoreEntitySet="Level">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="XP" ColumnName="XP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeCoordinate">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.TypeCoordinate">
+        <MappingFragment StoreEntitySet="TypeCoordinate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCharacter">
+      <EntityTypeMapping TypeName="eTopRPG_ISIP25Model.UserCharacter">
+        <MappingFragment StoreEntitySet="UserCharacter">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdCharacter" ColumnName="IdCharacter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

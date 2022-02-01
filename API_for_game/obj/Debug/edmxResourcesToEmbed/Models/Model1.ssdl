@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище eTopRPG_ISIP25Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ability">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Character">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdClasses" Type="int" Nullable="false" />
+    <Property Name="IdEquipmentCharacter" Type="int" Nullable="false" />
+    <Property Name="Hp" Type="int" Nullable="false" />
+    <Property Name="IdLevel" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClassAbility">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdClass" Type="int" Nullable="false" />
+    <Property Name="IdAbility" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CoordinateCharacter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="X" Type="int" />
+    <Property Name="Y" Type="int" />
+  </EntityType>
+  <EntityType Name="CoordinateKarta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="X" Type="int" Nullable="false" />
+    <Property Name="Y" Type="int" Nullable="false" />
+    <Property Name="IdTypeCoordinate" Type="int" Nullable="false" />
+    <Property Name="Fog" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Equipment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Damage" Type="int" Nullable="false" />
+    <Property Name="Protection" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquipmentCharacter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdEquipment" Type="int" />
+    <Property Name="IdCharacter" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Karta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCoordinateCharacter" Type="int" />
+    <Property Name="IdCoordinateKarta" Type="int" />
+  </EntityType>
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="XP" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "eTopRPG_ISIP25.dbo.Team" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Team">
+          <Property Name="Id" Type="int" />
+          <Property Name="Name" Type="int" />
+          <Property Name="Nma" Type="int" />
+          <Property Name="Character_3" Type="int" />
+        </EntityType>-->
+  <EntityType Name="TypeCoordinate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserCharacter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="IdCharacter" Type="int" />
+  </EntityType>
+  <Association Name="FK_Character_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="Character" Type="Self.Character" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Character">
+        <PropertyRef Name="IdClasses" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Character_Level">
+    <End Role="Level" Type="Self.Level" Multiplicity="1" />
+    <End Role="Character" Type="Self.Character" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Level">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Character">
+        <PropertyRef Name="IdLevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAbility_Ability">
+    <End Role="Ability" Type="Self.Ability" Multiplicity="1" />
+    <End Role="ClassAbility" Type="Self.ClassAbility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ability">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassAbility">
+        <PropertyRef Name="IdAbility" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAbility_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="ClassAbility" Type="Self.ClassAbility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassAbility">
+        <PropertyRef Name="IdClass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CoordinateKarta_TypeCoordinate">
+    <End Role="TypeCoordinate" Type="Self.TypeCoordinate" Multiplicity="1" />
+    <End Role="CoordinateKarta" Type="Self.CoordinateKarta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeCoordinate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoordinateKarta">
+        <PropertyRef Name="IdTypeCoordinate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipmentCharacter_Character">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="EquipmentCharacter" Type="Self.EquipmentCharacter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipmentCharacter">
+        <PropertyRef Name="IdCharacter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipmentCharacter_Equipment">
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="0..1" />
+    <End Role="EquipmentCharacter" Type="Self.EquipmentCharacter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipmentCharacter">
+        <PropertyRef Name="IdEquipment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Karta_CoordinateCharacter">
+    <End Role="CoordinateCharacter" Type="Self.CoordinateCharacter" Multiplicity="0..1" />
+    <End Role="Karta" Type="Self.Karta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CoordinateCharacter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Karta">
+        <PropertyRef Name="IdCoordinateCharacter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Karta_CoordinateKarta">
+    <End Role="CoordinateKarta" Type="Self.CoordinateKarta" Multiplicity="0..1" />
+    <End Role="Karta" Type="Self.Karta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CoordinateKarta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Karta">
+        <PropertyRef Name="IdCoordinateKarta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserCharacter_Character">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="UserCharacter" Type="Self.UserCharacter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCharacter">
+        <PropertyRef Name="IdCharacter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserCharacter_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="UserCharacter" Type="Self.UserCharacter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCharacter">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище eTopRPG_ISIP25ModelContainer">
+    <EntitySet Name="Ability" EntityType="Self.Ability" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Character" EntityType="Self.Character" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassAbility" EntityType="Self.ClassAbility" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CoordinateCharacter" EntityType="Self.CoordinateCharacter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CoordinateKarta" EntityType="Self.CoordinateKarta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EquipmentCharacter" EntityType="Self.EquipmentCharacter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Karta" EntityType="Self.Karta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeCoordinate" EntityType="Self.TypeCoordinate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserCharacter" EntityType="Self.UserCharacter" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Character_Class" Association="Self.FK_Character_Class">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Character" EntitySet="Character" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Character_Level" Association="Self.FK_Character_Level">
+      <End Role="Level" EntitySet="Level" />
+      <End Role="Character" EntitySet="Character" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAbility_Ability" Association="Self.FK_ClassAbility_Ability">
+      <End Role="Ability" EntitySet="Ability" />
+      <End Role="ClassAbility" EntitySet="ClassAbility" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAbility_Class" Association="Self.FK_ClassAbility_Class">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="ClassAbility" EntitySet="ClassAbility" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CoordinateKarta_TypeCoordinate" Association="Self.FK_CoordinateKarta_TypeCoordinate">
+      <End Role="TypeCoordinate" EntitySet="TypeCoordinate" />
+      <End Role="CoordinateKarta" EntitySet="CoordinateKarta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipmentCharacter_Character" Association="Self.FK_EquipmentCharacter_Character">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="EquipmentCharacter" EntitySet="EquipmentCharacter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipmentCharacter_Equipment" Association="Self.FK_EquipmentCharacter_Equipment">
+      <End Role="Equipment" EntitySet="Equipment" />
+      <End Role="EquipmentCharacter" EntitySet="EquipmentCharacter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Karta_CoordinateCharacter" Association="Self.FK_Karta_CoordinateCharacter">
+      <End Role="CoordinateCharacter" EntitySet="CoordinateCharacter" />
+      <End Role="Karta" EntitySet="Karta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Karta_CoordinateKarta" Association="Self.FK_Karta_CoordinateKarta">
+      <End Role="CoordinateKarta" EntitySet="CoordinateKarta" />
+      <End Role="Karta" EntitySet="Karta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserCharacter_Character" Association="Self.FK_UserCharacter_Character">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="UserCharacter" EntitySet="UserCharacter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserCharacter_User" Association="Self.FK_UserCharacter_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserCharacter" EntitySet="UserCharacter" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
