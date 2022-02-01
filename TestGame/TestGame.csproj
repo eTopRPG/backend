@@ -70,6 +70,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Monstr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +95,31 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\tuman.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\Skeletona.png" />
+    <Resource Include="Res\Wall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\energy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\attack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\yEnergy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\Lava.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\Heal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

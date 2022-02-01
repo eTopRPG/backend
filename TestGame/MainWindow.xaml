@@ -9,152 +9,247 @@
         Title="MainWindow" Height="1000" Width="1800"
         PreviewKeyDown="Window_PreviewKeyDown">
     <Grid>
-        <!--<DataGrid
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Height="400"
-            Width="400">
+        <StackPanel
+            HorizontalAlignment="Left"
+            Width="250"
+            Margin="15 80">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Res/heart.png" Width="100"/>
+                <TextBlock Foreground="Red" Text="100"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Name="TbHP"
+                           TextAlignment="Center"
+                           FontFamily="Snap ITC" 
+                           Margin="15"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Res/energy.jpg"
+                       Width="100" />
+                <TextBlock Foreground="Orange"
+                           Name="EnergyVal"
+                           Text="52"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           TextAlignment="Center"
+                           FontFamily="Snap ITC"
+                           Margin="15" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Res/attack.png"
+                       Width="100" />
+                <TextBlock Foreground="Gray"
+                           Text="20"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           TextAlignment="Center"
+                           FontFamily="Snap ITC"
+                           Margin="15" />
+            </StackPanel>
+        </StackPanel>
+        <Border BorderBrush="Orange"
+                BorderThickness="4"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <Border.Background>
+                <ImageBrush ImageSource="/Res/tuman.jpg"/>
+            </Border.Background>
+            <ScrollViewer Width="1200"
+                          Height="800"
+                          ScrollChanged="MainScroll_ScrollChanged"
+                VerticalScrollBarVisibility="Hidden"
+                HorizontalScrollBarVisibility="Hidden"
+                Name="MainScroll">
+                
+                <StackPanel>
+                    <Grid HorizontalAlignment="Left"
+                          Width="8400"
+                          Height="4500"
+                          x:Name="GameMap">
+                        <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                        <Border Height="100"
+                                Width="100"
+                                Panel.ZIndex="1"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Name="Player">
+                            <Border.Background>
+                                <ImageBrush ImageSource="/Res/Heal.png"/>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </StackPanel>
             
-        </DataGrid>-->
-        <Grid Width="1700"
-              Height="900"
-              x:Name="GameMap"
-              Background="White">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="20"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-            </Grid.RowDefinitions>
-            <Border Height="80"
-                Width="80"
-                    Panel.ZIndex="1"
-                Background="Red"
-                Grid.Row="0"
-                Grid.Column="0"
-                Name="Player"/>
-        </Grid>
+            </ScrollViewer>
+            
+        </Border>
+        <StackPanel Background="White"
+                    HorizontalAlignment="Right"
+                    Margin="15 85"
+                    Width="260">
+            <StackPanel>
+                <TextBlock Text="WASD -" FontSize="24" Foreground="Red" FontWeight="Bold">
+                    <Run Text=" перемещение." Foreground="Black" FontWeight="Regular"/>
+                </TextBlock>
+                <TextBlock Text="Space -"
+                           FontSize="24"
+                           Foreground="Red" FontWeight="Bold">
+                    <Run Text=" радар." Foreground="Black" FontWeight="Regular"/>
+                </TextBlock>
+                <TextBlock Text="E -"
+                           FontSize="24"
+                           Foreground="Red" FontWeight="Bold">
+                    <Run Text=" взаимодействие." Foreground="Black" FontWeight="Regular"/>
+                </TextBlock>
+                <TextBlock Text="F -"
+                           FontSize="24"
+                           Foreground="Red" FontWeight="Bold">
+                    <Run Text=" атака." Foreground="Black" FontWeight="Regular"/>
+                </TextBlock>
+                <TextBlock Text="* -"
+                           TextWrapping="Wrap"
+                           FontSize="24"
+                           Foreground="Red"
+                           FontWeight="Bold">
+                    <Run Text=" наведи курсор на монстра для получения информации о его здоровье."
+                         Foreground="Black"
+                         FontWeight="Regular" />
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
