@@ -1,6 +1,6 @@
 # backend for RPG-game
 ### Ветка WPF - Sln с игрой
-### Ветка APIGAME - Sln пока без апи, сегодня загружу (если будут данные)
+### Ветка APIGAME - Sln c api
 ### MS SQL Название бд "eTopRpg_Isip25" на gogs.kp11.ru
 
 ## Авторы: 
